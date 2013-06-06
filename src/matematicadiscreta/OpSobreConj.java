@@ -33,38 +33,19 @@ public class OpSobreConj {
 
     //  adiciona as endorrelações no array endorrelações
     public static void addEndorrelacoes(ArrayList conjunto, ArrayList endorrelacoes) {
-        ArrayList<SubConjunto> b = new ArrayList();
-        /*
-         * ArrayList a -> contem todos os elementos
-         * ArrayList c -> vai receber todas as endorrelacoes
-         */
-        System.out.print("primeiro elemento: " + conjunto.get(0));
-        System.out.print("\ntamanho do array 'A': " + conjunto.size() + "\n");
+        
+    }
 
-        int tamA = conjunto.size();
-
-        // Preenche o array B com todas as possibilidades de conjuntos
-        for (int i = 0; i < tamA; i++) {
-            for (int j = 0; j < tamA; j++) {
-                b.add(new SubConjunto(conjunto.get(i), conjunto.get(j)));
-            }
+    public static String inverso(String string) {
+        String inverso = "";
+        char arrayChar[] = string.toCharArray();
+        for (int i = arrayChar.length - 1; i >= 0; i--) {
+            inverso += String.valueOf(arrayChar[i]);
+//            if(string.charAt(i) == '>'){
+//            }
         }
-        endorrelacoes.add(b);
-        endorrelacoes.add(new ArrayList());
-
-        // separando as endorrelações
-        for (int i = 0; i < b.size(); i++) {
-            endorrelacoes.add(b.get(i).toString());
-        }
-
-//        for (int i = 0; i < b.size(); i++) {
-//            ArrayList<SubConjunto> x = new ArrayList(b);
-//            x.remove(x.get(i));
-//            endorrelacoes.add(x);
-//        }
-        for (int i = 0; i < endorrelacoes.size(); i++) {
-            System.out.print("\nR" + (i + 1) + " :" + endorrelacoes.get(i));
-        }
+        inverso = inverso.replace('>', '<');
+        return inverso;
     }
 
     // retorna os tipo de uma relação informada
@@ -123,7 +104,7 @@ public class OpSobreConj {
 
         }
 
-        // transitiva, código incompleto
+        // transitiva, código incompleto -------------------------
 //        TipoConjunto.ehTransitivaImp(endorrelacao);
         if (TipoConjunto.ehTransitiva(endorrelacao)) {
             tipo.add("Transitiva");
@@ -162,17 +143,14 @@ public class OpSobreConj {
         return tipo;
     }
 
-    public static void imprimirEndorrelacoes(ArrayList<ArrayList<SubConjunto>> endorrelacoes) {
+    public static void imprimirEndorrelacoes(ArrayList endorrelacoes) {
         System.out.println("Endorrelações:");
         for (int i = 0; i < endorrelacoes.size(); i++) {
-            System.out.print("\tR" + (i + 1) + ": {");
-            for (int j = 0; j < endorrelacoes.get(i).size(); j++) {
-                //System.out.println("item"+j);
-                System.out.print(" <" + endorrelacoes.get(i).get(j).getA() + "," + endorrelacoes.get(i).get(j).getB() + ">");
-            }
-            System.out.print(" }\n");
+            System.out.print("\tR" + (i + 1) + ": ");
+            //System.out.println("item"+j);
+            System.out.print(endorrelacoes.get(i).toString());
+            System.out.print("\n");
         }
-        System.out.print("\n");
     }
 
     public static ArrayList<String> conjEndorrelacoes(ArrayList<ArrayList<SubConjunto>> endorrelacoes) {
