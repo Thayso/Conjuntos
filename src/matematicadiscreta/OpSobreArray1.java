@@ -117,7 +117,7 @@ public class OpSobreArray1 {
 
         // transitiva, código incompleto
 //        TipoConjunto.ehTransitivaImp(endorrelacao);
-        if (TipoConjunto.ehTransitiva(endorrelacao)) {
+        if (TipoConjunto.ehTransitiva(tam, matriz, endorrelacao)) {
             tipo.add("Transitiva");
         } else {
             tipo.add("Não Transitiva");

@@ -19,12 +19,15 @@ public class MatematicaDiscreta {
         conjunto.add(5);
         // --- FIM 
 
-        OpSobreConj.removerRepetidos(conjunto);
+//        OpSobreConj.removerRepetidos(conjunto);
+//
+////        OpSobreConj.imprimirConjunto(conjunto);
+//
+//        OpSobreConj.addEndorrelacoes(conjunto, endorrelacoes);
 
-//        OpSobreConj.imprimirConjunto(conjunto);
-
-        OpSobreConj.addEndorrelacoes(conjunto, endorrelacoes);
-
+        ArrayList<SubConjunto> x = new ArrayList<>();                           // cria um array para receber o conjunto
+        x.add(new SubConjunto(1, 1));                                           // adiciona o subconjuto: <1,1> no array
+        System.out.print("Tipo(s): " + OpSobreConj.GerarTipo(x, conjunto));
 //        OpSobreConj.imprimirEndorrelacoes(endorrelacoes);
 
         /*

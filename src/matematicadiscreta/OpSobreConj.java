@@ -104,11 +104,18 @@ public class OpSobreConj {
         }
 
         // transitiva, código incompleto -------------------------
-        if (TipoConjunto.ehTransitiva(endorrelacao)) {
+        if (TipoConjunto.ehTransitiva(tam, matrizDoConjunto, endorrelacao)) {
             tipo.add("Transitiva");
         } else {
             tipo.add("Não Transitiva");
         }
+
+
+//        if (TipoConjunto.ehTransitiva(endorrelacao)) {
+//            tipo.add("Transitiva");
+//        } else {
+//            tipo.add("Não Transitiva");
+//        }
 
         if (tipo.isEmpty()) {
             tipo.add("Não há tipo(s)");
