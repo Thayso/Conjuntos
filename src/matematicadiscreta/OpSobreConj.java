@@ -116,7 +116,6 @@ public class OpSobreConj {
         }
 
         // inserindo os tipos ---- FIM -------------------
-
         return tipo;
     }
 
