@@ -37,7 +37,7 @@ public class JogoDaVelha {
                         }
 
                         imprimirJogo(velha);
-                        imprimirPossibilidades(velha);
+                        imprimirPossibilidades(velha, jogador);
 
                         String venceu = jaVenceu(velha);
                         if (!venceu.equals("falso")) {
@@ -105,12 +105,12 @@ public class JogoDaVelha {
         return true;
     }
 
-    public static void imprimirPossibilidades(String[][] velha) {
-        System.out.print("\nJogadas Possiveis: \n");
+    public static void imprimirPossibilidades(String[][] velha, String jogador) {
+        System.out.print("\nJogadas Possíveis para " + jogador + ": \n");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (velha[i][j] == null) {
-                    System.out.print("Posição: [" + i + "] [" + j + "]\n");
+                    System.out.print("[" + i + "] [" + j + "]\n");
                 }
             }
         }
