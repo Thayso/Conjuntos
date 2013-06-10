@@ -33,7 +33,6 @@ public class OpSobreConj {
 
     //  adiciona as endorrelações no array endorrelações
     public static void addEndorrelacoes(ArrayList conjunto, ArrayList endorrelacoes) {
-        
     }
 
     public static String inverso(String string) {
@@ -52,15 +51,15 @@ public class OpSobreConj {
     public static ArrayList<String> GerarTipo(ArrayList<SubConjunto> endorrelacao, ArrayList conj) {
         ArrayList<String> tipo = new ArrayList();
         int tam = conj.size() + 1;
-        String[][] matriz = new String[tam][tam];
-        matriz[0][0] = "CONJ";
+        String[][] matrizDoConjunto = new String[tam][tam];
+        matrizDoConjunto[0][0] = "CONJ";
         System.out.print("\n");
 
         // preenche as extremidades da matriz[linhas][colunas] com os elementos do conjunto
         for (int i = 0; i < tam; i++) {
             if (i != tam - 1) {
-                matriz[0][i + 1] = conj.get(i).toString();
-                matriz[i + 1][0] = conj.get(i).toString();
+                matrizDoConjunto[0][i + 1] = conj.get(i).toString();
+                matrizDoConjunto[i + 1][0] = conj.get(i).toString();
             }
         }
 
@@ -75,29 +74,29 @@ public class OpSobreConj {
 
         for (int i = 1; i < tam; i++) {
             for (int j = 1; j < tam; j++) {
-                String conjAux = "<" + matriz[0][i] + "," + matriz[j][0] + ">";
+                String conjAux = "<" + matrizDoConjunto[0][i] + "," + matrizDoConjunto[j][0] + ">";
                 if (conjEndo.contains(conjAux)) {
-                    matriz[i][j] = "1";
+                    matrizDoConjunto[i][j] = "1";
                 } else {
-                    matriz[i][j] = "0";
+                    matrizDoConjunto[i][j] = "0";
                 }
             }
         }
 
         // inserindo os tipos ------ INICIO --------------
         // reflexiva
-        if (TipoConjunto.ehReflexiva(tam, matriz)) {
+        if (TipoConjunto.ehReflexiva(tam, matrizDoConjunto)) {
             tipo.add("Reflexiva");
 //            tipo.add("Transitiva");
         } else {
             // irreflexiva
-            if (TipoConjunto.ehIrreflexiva(tam, matriz)) {
+            if (TipoConjunto.ehIrreflexiva(tam, matrizDoConjunto)) {
                 tipo.add("Irreflexiva");
             }
         }
 
         // simetrica
-        if (TipoConjunto.ehSimetrica(tam, matriz)) {
+        if (TipoConjunto.ehSimetrica(tam, matrizDoConjunto)) {
             tipo.add("Simétrica");
         } else {
             tipo.add("Assimétrica");
@@ -105,41 +104,19 @@ public class OpSobreConj {
         }
 
         // transitiva, código incompleto -------------------------
-//        TipoConjunto.ehTransitivaImp(endorrelacao);
         if (TipoConjunto.ehTransitiva(endorrelacao)) {
             tipo.add("Transitiva");
         } else {
             tipo.add("Não Transitiva");
         }
-        // inserindo os tipos ---- FIM -------------------
 
-        // imprime endorelacao informada
-
-
-//        System.out.print("{");
-//        for (int j = 0; j < tamRelacao; j++) {
-//            //System.out.println("item"+j);
-//            System.out.print(" <" + relacao.get(j).getA() + "," + relacao.get(j).getB() + ">");
-//        }
-//        System.out.print(" }\n");
-//
-//        // imprime matriz
-//        System.out.print("Matriz: \n");
-//        for (int i = 0; i < tam; i++) {
-//            for (int j = 0; j < tam; j++) {
-//                System.out.print(matriz[i][j] + "\t");
-//            }
-//            System.out.print("\n");
-//        }
-//
-//        System.out.print("\n");
-//        
-
-        // retorna o resultado
         if (tipo.isEmpty()) {
             tipo.add("Não há tipo(s)");
             return tipo;
         }
+
+        // inserindo os tipos ---- FIM -------------------
+
         return tipo;
     }
 
