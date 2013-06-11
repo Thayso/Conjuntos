@@ -49,19 +49,7 @@ public class Velha {
         }
     }
 
-    public String[][] getVelha() {
-        return velha;
-    }
-
-    public void setVelha(String[][] velha) {
-        this.velha = velha;
-    }
-
     public String getUltimoJogador() {
         return ultimoJogador;
-    }
-
-    public void setUltimoJogador(String ultimoJogador) {
-        this.ultimoJogador = ultimoJogador;
     }
 }
