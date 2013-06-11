@@ -225,17 +225,19 @@ Caso não necessite da interface, remova os métodos JOptionpane, e faça como a
 
 ***Entrada***
 
-    String [][] velha = new String[3][3];                       // deaclara a matriz que receberá os dados.
-    velha[0][1] = "X";                                          // insere o jogador X na posição determinada.
+    Velha jogo = new Velha();                                   // utiliza a classe Velha
+    jogo.Velha(0, 0, "X");                                      // insere o jogador na posição
+    jogo.JogadasDisponiveis();                                  // Informa as jogadas disponíveis
     
 ***Saída***
 
-    Jogadas Possíveis para O: 
-    [0] [0]
-    [0] [2]
-    [1] [0]
-    [1] [1]
-    [1] [2]
-    [2] [0]
-    [2] [1]
-    [2] [2]
+    Jogadas Disponíveis para O
+    velha[0][1]
+    velha[0][2]
+    velha[1][0]
+    velha[1][1]
+    velha[1][2]
+    velha[2][0]
+    velha[2][1]
+    velha[2][2]
+    Fim!
