@@ -11,15 +11,12 @@ public class Velha {
 
     public void Velha(int x, int y, String jogador) {
         this.getVelha()[x][y] = jogador;
-        if (jogador.equals("X")) {
-            this.setUltimoJogador("O");
-        } else {
-            this.setUltimoJogador("X");
-        }
+        this.setUltimoJogador(jogador);
     }
 
     public void JogadasDisponiveis() {
-        System.out.println("Jogadas Disponíveis para " + this.ultimoJogador);
+        String jogador = this.ultimoJogador.equals("X") ? "O" : "X";
+        System.out.println("Jogadas Disponíveis para " + jogador);
         buscarJogadas(this.getVelha(), 0, 0);
         System.out.println("Fim!");
     }
@@ -49,7 +46,23 @@ public class Velha {
         }
     }
 
+    public String[][] getVelha() {
+        return velha;
+    }
+
+    public void setVelha(String[][] velha) {
+        this.velha = velha;
+    }
+
+    public String getProximoJogador() {
+        return this.ultimoJogador.equals("X") ? "O" : "X";
+    }
+
     public String getUltimoJogador() {
         return ultimoJogador;
+    }
+
+    public void setUltimoJogador(String ultimoJogador) {
+        this.ultimoJogador = ultimoJogador;
     }
 }
