@@ -16,7 +16,9 @@ public class Ordenar {
             }
         }
 
-        int numBaldes = maior / 10;
+        int elementosPorBalde = 3;
+        int numBaldes = maior / elementosPorBalde;
+        System.out.print("numero de baldes " + numBaldes + "\n");
 
         ArrayList[] B = new ArrayList[numBaldes];
 
@@ -31,14 +33,14 @@ public class Ordenar {
                 if (j < 0) {
                     break;
                 }
-                if ((int) vetor.get(i) >= (j * 5)) {
+                if ((int) vetor.get(i) >= ((j * elementosPorBalde) + 1)) {
                     B[j].add(vetor.get(i));
                     break;
                 }
                 j--;
             }
         }
-        // imprime os valores separados em baldes baldes.
+//         imprime os valores separados em baldes baldes.
 //        for (int i = 0; i < B.length; i++) {
 //            System.out.print(B[i] + "\t");
 //        }
